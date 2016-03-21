@@ -37,22 +37,18 @@ public class ClassAsyncTask extends AsyncTask<String, Integer, String> {
 
     @Override
     protected String doInBackground(String... params){
-        Log.d("TEST1", "doInBackGround");
         // Get data from server
         return httpRequestHelper.downloadFromServer(params);
     }
 
     @Override
     protected void onProgressUpdate(Integer... values){
-        Log.d("TEST2", "onProgressupdate");
-
         super.onProgressUpdate(values);
     }
 
     protected void onPostExecute(String result){
         super.onPostExecute(result);
-        Log.d("TEST3", "onPostExecute");
-
+ 
         // Alert user if nothing was found
         if(result.length() == 0){
             Toast.makeText(context, "Nothing was found", Toast.LENGTH_SHORT).show();
